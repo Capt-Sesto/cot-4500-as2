@@ -1,3 +1,4 @@
+
 import numpy as np
 
 from scipy.linalg import solve
@@ -46,12 +47,12 @@ def newton_method_and_approx():
     onedd = (fb - fa) / (b - a)
     twodd = (fc - fb) / (c - b)
     threedd = (fd - fc) / (d - c)
-    ddone = (twodd - onedd) / (x2 - a)
-    ddtwo = (threedd - twodd) / (x3 - x1)
-    ddonedd = (ddtwo - ddone) / (x3 - a)
+    ddone = (twodd - onedd) / (c - a)
+    ddtwo = (threedd - twodd) / (d - b)
+    ddonedd = (ddtwo - ddone) / (d - a)
     z = [onedd, ddone, ddonedd]
-    print(d, "\n")
-#3
+    print(z, "\n")
+    #3
     aprox = 7.3
     approx = fa + onedd * (aprox - a) + ddone * (aprox - b) * (aprox - a)\
           + ddonedd * (aprox - c) * (aprox - b) * (aprox - a)
@@ -97,7 +98,7 @@ def function_name_here():
     ix = (sixsix - fivefive) / (six - two)
     num = np.matrix([[one, oone, oonee, onee, oneone, ne], [two, ttwo, ttwoo, twoo, twotwo, wo], [three, tthree, tthreee, threee, threethree, hree], \
                    [four, ffour, ffourr, fourr, fourfour, our], [five, ffive, ffivee, fivee, fivefive, ive], [six, ssix, ssixx, sixx, sixsix, ix]])
-    print(num)
+    print(num, "\n")
 #5      
 def cubic_spline_matrix(x, y):
 
@@ -134,10 +135,11 @@ if __name__ == "__main__":
     x_points = [3.6, 3.8, 3.9]
     y_points = [1.675, 1.436, 1.318]
     approximated_x = 3.7 
+    nevilles_method(x_points, y_points, approximated_x)
     #2,3
     newton_method_and_approx()
     #4
-    hermite_interpolation()
+    function_name_here()
     #5
     x = [2, 5, 8, 10]
     y = [3, 5, 7, 9]
